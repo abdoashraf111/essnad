@@ -8,11 +8,20 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../reuseable_component/custom_textform.dart';
 import '../../reuseable_component/cutom_button.dart';
+import '../check_screen/check_screen.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
    SignUp({Key? key}) : super(key: key);
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
 bool x=false;
+
 var _service =SignupService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,16 +126,21 @@ var _service =SignupService();
                           "الموافقه علي الشروط والاحكام",
                           style: TextStyle(color: Colors.green),
                         ),
+                        SizedBox(width: 10,),
                         InkWell(
                           onTap: (){
-                            _service.Remark();
+                            print("pusssssh");
+                            setState(() {
+                              if(x==false){x=true;print("true");}
+                              else{x=false;print("false");};
+                            });
 
                           },
                           child: Container(
                             height: 12,
                             width: 12,
                             decoration: BoxDecoration(
-                              color: x==false ?Colors.white :Color(0xff147868),
+                              color: x ==false ?Colors.white :Color(0xff147868),
                               border: Border.all(color: Color(0xff147868)),
                               borderRadius: BorderRadius.circular(2)
                             ),
@@ -138,7 +152,7 @@ var _service =SignupService();
                   ),
                   Center(
                       child: CustomButton(
-                          onPressed: () {},
+                          onPressed: () {Get.to(CheckScreen());},
                           text: "انشاء حساب",
                           ButtonColor: Color(0xff147868),
                           TextColor: Colors.white)),
