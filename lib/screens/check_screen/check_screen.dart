@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../reuseable_component/check_box.dart';
+import '../main_page/main_page.dart';
 import '../main_screen/Main_screen.dart';
 
 class CheckScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ bool check=false;
                   ),
                   IconButton(
                       onPressed: () {
-                        Get.to(HelloScreen());
+                        Get.to(SignUp());
                       },
                       icon: const Icon(
                         Icons.arrow_forward_outlined,
@@ -109,7 +110,7 @@ bool check=false;
                       child: CustomButton(
                           onPressed: () {
                             if(FormKey.currentState!.validate()){
-                              Get.to(MainScreen());
+                              Get.to(MainPage());
                               setState(() {
                                 check=true;
                               });
@@ -125,7 +126,7 @@ bool check=false;
                     children: [
                       TextButton(
                           onPressed: () {
-                            Get.to(SignUp());
+
                           },
                           child: Text(
                             "اعاده ارسال الكود",
