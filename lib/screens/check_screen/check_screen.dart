@@ -1,26 +1,25 @@
-import 'package:essnad/reuseable_component/custom_textform.dart';
+
 import 'package:essnad/reuseable_component/cutom_button.dart';
-import 'package:essnad/screens/hello%20screen/hello_screen.dart';
+
+import 'package:essnad/screens/profil_screen/profil_screen.dart';
 import 'package:essnad/screens/signup_screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
 import '../../reuseable_component/check_box.dart';
-import '../main_page/main_page.dart';
-import '../main_screen/Main_screen.dart';
+
 
 class CheckScreen extends StatefulWidget {
-   CheckScreen({Key? key}) : super(key: key);
+  CheckScreen({Key? key}) : super(key: key);
 
   @override
   State<CheckScreen> createState() => _CheckScreenState();
 }
 
 class _CheckScreenState extends State<CheckScreen> {
-final FormKey=GlobalKey<FormState>();
+  final FormKey = GlobalKey<FormState>();
 
-bool check=false;
+  bool check = false;
 
   @override
   Widget build(BuildContext context) {
@@ -84,50 +83,66 @@ bool check=false;
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Center(child: Text("ادخل الرقم المرسل لهاتفك")),
-                  SizedBox(height: 50,),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Form(
                     key: FormKey,
                     child: Row(
                       children: [
-                        Spacer(flex: 1,),
+                        Spacer(
+                          flex: 1,
+                        ),
                         CheckBox(),
-                        Spacer(flex: 1,),
+                        Spacer(
+                          flex: 1,
+                        ),
                         CheckBox(),
-                        Spacer(flex: 1,),
+                        Spacer(
+                          flex: 1,
+                        ),
                         CheckBox(),
-                        Spacer(flex: 1,),
+                        Spacer(
+                          flex: 1,
+                        ),
                         CheckBox(),
-                        Spacer(flex: 1,),
-
-
+                        Spacer(
+                          flex: 1,
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 100,),
+                  SizedBox(
+                    height: 100,
+                  ),
                   Center(
                       child: CustomButton(
                           onPressed: () {
-                            if(FormKey.currentState!.validate()){
-                              Get.to(MainPage());
+                            if (FormKey.currentState!.validate()) {
+                              Get.to(ProfilePage());
                               setState(() {
-                                check=true;
+                                check = true;
                               });
-                            }else{setState(() {
-                              check=false;
-                            });}
+                            } else {
+                              setState(() {
+                                check = false;
+                              });
+                            }
                           },
                           text: "التالي",
-                          ButtonColor: check==false?Color(0xffDCE7E5):Color(0xff147868),
+                          ButtonColor: check == false
+                              ? Color(0xffDCE7E5)
+                              : Color(0xff147868),
                           TextColor: Colors.white)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                          onPressed: () {
-
-                          },
+                          onPressed: () {},
                           child: Text(
                             "اعاده ارسال الكود",
                             style: TextStyle(color: Colors.green),
