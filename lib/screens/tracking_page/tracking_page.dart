@@ -1,13 +1,15 @@
-import 'package:essnad/screens/profil_screen/profil_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../reuseable_component/track_card.dart';
+import '../profil_screen/profil_screen.dart';
+import '../setting_screen/setting_screen.dart';
 import '../signin_screen/sign_in_screen.dart';
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({Key? key}) : super(key: key);
+class TrackingPage extends StatelessWidget {
+  const TrackingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +50,15 @@ class SettingScreen extends StatelessWidget {
               top: 80,
               left: 0,
               right: 0,
-              child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("الاعدادات",style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24
-                  ),),
+                  Text(
+                    "متابعه المخالفات",
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
                 ],
-              )),
+              )), //address
           Positioned(
             top: 143,
             child: Container(
@@ -67,71 +70,34 @@ class SettingScreen extends StatelessWidget {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
               child: Padding(
-                padding: const EdgeInsets.only(top: 35,right: 50,left: 50),
-                child: Column(
-                  children: [
-                    Text("اعدادات الحساب",style: TextStyle(
-                        fontSize: 20
-                    )),
-                    SizedBox(height: 30),
-                    Column(crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text("اللغة",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                        Text(" تحديث رقم الجوال",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                        Text("تغيير كلمه المرور",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                      ],
-                    ),
-                    Text("الدعم",style: TextStyle(
-                        fontSize: 20
-                    )),
-                    SizedBox(height: 30),
-                    Column(crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text("الدعم الفني",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                        Text(" اتصل بنا",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                        Text("اللوائح و الانظمة",style: TextStyle(
-                            fontSize: 18
-                        )),
-                        Divider(
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: 20,),
-                      ],
-                    ),
+                padding: const EdgeInsets.only(top: 35, right: 15, left: 15),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Image.asset("lib/images/track.png"),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,),
+                      CardTrack(),
+                      SizedBox(height: 20,)
 
-                  ],
+                    ],
+                  ),
                 ),
-
               ),
             ),
           ),
@@ -144,7 +110,7 @@ class SettingScreen extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(20),
                         topLeft: Radius.circular(20)),
-                    color: Colors.white),
+                    color: Color(0xffE7F1EF)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -164,8 +130,7 @@ class SettingScreen extends StatelessWidget {
                                 },
                                 icon: Image.asset("lib/images/1.1.png"),
                               ),
-                              backgroundColor:
-                               Colors.white),
+                              backgroundColor: Color(0xffE7F1EF)),
                           Text(
                             "حسابي",
                             style: TextStyle(fontSize: 12),
@@ -187,8 +152,7 @@ class SettingScreen extends StatelessWidget {
                                 },
                                 icon: Image.asset("lib/images/2.2.png"),
                               ),
-                              backgroundColor:
-                              Colors.white),
+                              backgroundColor: Color(0xffE7F1EF)),
                           Text(
                             "الرئيسية",
                             style: TextStyle(fontSize: 12),
@@ -210,8 +174,7 @@ class SettingScreen extends StatelessWidget {
                                 },
                                 icon: Image.asset("lib/images/3.3.png"),
                               ),
-                              backgroundColor:
-                               Colors.white),
+                              backgroundColor: Color(0xffE7F1EF)),
                           Text("الخدمات", style: TextStyle(fontSize: 12)),
                         ],
                       ),
@@ -221,7 +184,7 @@ class SettingScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ))
+              )) //nav bar
         ],
       ),
     );

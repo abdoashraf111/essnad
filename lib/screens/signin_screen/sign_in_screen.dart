@@ -1,6 +1,7 @@
 import 'package:essnad/reuseable_component/custom_textform.dart';
 import 'package:essnad/reuseable_component/cutom_button.dart';
 import 'package:essnad/screens/hello%20screen/hello_screen.dart';
+import 'package:essnad/screens/profil_screen/profil_screen.dart';
 import 'package:essnad/screens/signup_screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -113,7 +114,7 @@ class SignIn extends StatelessWidget {
                   ),
                   Center(
                       child: CustomButton(
-                          onPressed: () {},
+                          onPressed: () {Get.to(ProfilePage());},
                           text: "دخول",
                           ButtonColor: Color(0xff147868),
                           TextColor: Colors.white)),

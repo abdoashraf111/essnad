@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:essnad/screens/profil_screen/serviec.dart';
 import 'package:essnad/screens/signin_screen/sign_in_screen.dart';
+import 'package:essnad/screens/warning_page/warning_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../reuseable_component/cutom_button.dart';
 import '../check_screen/check_screen.dart';
 import '../setting_screen/setting_screen.dart';
+import '../tracking_page/tracking_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -160,11 +162,22 @@ class _MainPageState extends State<ProfilePage> {
                             height: 30,
                           ),
                           Container(
+
+
                             child: CarouselSlider.builder(
-                              options: CarouselOptions(),
-                              itemCount: 5,
+                              options: CarouselOptions(
+                                enlargeCenterPage: true,
+                                height: 195,
+                                viewportFraction: .4,
+                                //enlargeFactor: .5,
+                                //disableCenter: true
+                              ),
+                              itemCount: cards.length,
+
                                 itemBuilder: (context, index, realIndex) {
-                               return cards[index];
+                               return InkWell(
+                                   onTap: () => Get.to(WarningPage()),
+                                   child: cards[index]);
                                 },
 
                             ),
@@ -390,7 +403,7 @@ class _MainPageState extends State<ProfilePage> {
                                 flex: 1,
                               ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {Get.to(TrackingPage());},
                                 child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
@@ -464,7 +477,7 @@ class _MainPageState extends State<ProfilePage> {
                                 flex: 1,
                               ),
                               InkWell(
-                                onTap: () {},
+                                onTap: () {Get.to(WarningPage());},
                                 child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
@@ -526,7 +539,70 @@ class _MainPageState extends State<ProfilePage> {
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
                     child: Padding(
-                      padding: const EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.only(top: 35,left: 50,right: 50),
+                      child: Column(
+                        children: [
+                          Row(mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                            Text("عبدالرحمن اشرف",style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.grey
+                            )),
+                            SizedBox(width: 10,),
+                            CircleAvatar(
+                              child: Image.asset(
+                                "lib/images/profile.png",
+                                fit: BoxFit.fill,
+                              ),
+                              radius: 30,
+                            ),
+                          ],),
+                          SizedBox(height: 30,),
+                          Text("البيانات الشخصية",style: TextStyle(
+                            fontSize: 20
+                          )),
+                          SizedBox(height: 30,),
+                          Column(crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text("الاسم",style: TextStyle(
+                                fontSize: 13
+                              )),
+                              Text("عبدالرحمن اشرف",style: TextStyle(
+                                  fontSize: 13)),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                              SizedBox(height: 20,),
+                              Text("تاريخ الميلاد",style: TextStyle(
+                                  fontSize: 13
+                              )),
+                              Text("1995.5.30",style: TextStyle(
+                                  fontSize: 13)),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                              SizedBox(height: 20,),
+                              Text("رقم الجوال",style: TextStyle(
+                                  fontSize: 13
+                              )),
+                              Text(" 01153352122",style: TextStyle(
+                                  fontSize: 13)),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                              SizedBox(height: 20,),
+                              Text("البريد الالكتروني",style: TextStyle(
+                                  fontSize: 13
+                              )),
+                              Text("abdoashraf11.aa@gmail.com",style: TextStyle(
+                                  fontSize: 13)),
+                              Divider(
+                                color: Colors.black,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
 
                     ),
                   ),
