@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:essnad/screens/profil_screen/serviec.dart';
 import 'package:essnad/screens/signin_screen/sign_in_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +63,7 @@ class _MainPageState extends State<ProfilePage> {
               });
             },
             controller: _controller,
+            physics: NeverScrollableScrollPhysics(),
             children: [
               Stack(children: [
                 Positioned(
@@ -156,6 +159,16 @@ class _MainPageState extends State<ProfilePage> {
                           SizedBox(
                             height: 30,
                           ),
+                          Container(
+                            child: CarouselSlider.builder(
+                              options: CarouselOptions(),
+                              itemCount: 5,
+                                itemBuilder: (context, index, realIndex) {
+                               return cards[index];
+                                },
+
+                            ),
+                          )
 
                         ],
                       ),
@@ -518,12 +531,10 @@ class _MainPageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-
-
               ]),
-
             ],
           ),
+          //navigator button
           Positioned(
               height: 80,
               width: MediaQuery.of(context).size.width,
